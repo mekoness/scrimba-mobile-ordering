@@ -138,8 +138,9 @@ header {
 
 .modal-input {
     padding: .5rem 1rem;
+    margin-bottom: 1rem;
     width: 100%;
-    border: 1px solid #000;
+    border: 1px solid #666;
     border-radius: 3px;
 }
 

@@ -34,11 +34,13 @@
             </main>
         </div>
         <div class="modal hidden" id="modal">
-            <h2 class="modal-title">Enter Card Details</h2>
-            <input type="text" name="Name" class="modal-input" id="name" placeholder="Enter Your Name" required>
-            <input type="text" name="Card Number" class="modal-input" placeholder="Enter Card Number" required>
-            <input type="text" name="Card CCV" class="modal-input" placeholder="Enter CCV" required>
-            <button type="submit" class="btn" id="pay-btn">Pay</button>
+            <h2 class="modal-title">Enter Payment Details</h2>
+            <form>
+                <input type="text" name="Name" id="name" class="modal-input" placeholder="Enter Your Name" required>
+                <input type="text" name="Card Number" class="modal-input" placeholder="Enter Card Number" required>
+                <input type="text" name="Card CCV" class="modal-input" placeholder="Enter CCV" required>
+                <button type="submit" class="btn" id="pay-btn">Pay</button>
+            </form>
         </div>
     </body>
 </html>

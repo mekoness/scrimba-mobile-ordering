@@ -74,7 +74,9 @@ function renderPrice() {
 
     myOrder.forEach(orderItem => {
         priceTotal += orderItem.price * orderItem.quantity;
+
     });
+
     priceArea.textContent = `$${priceTotal}`;
 };
 
@@ -95,11 +97,12 @@ function handleOrderClick(itemId) {
 function handleRemoveClick(itemId) {
     const menuObj = myOrder.filter(menuItem => parseInt(menuItem.id) === parseInt(itemId))[0];
 
-    if (menuObj.quantity !== 0) {
+    if (menuObj.quantity >= 2) {
         menuObj.quantity --;
-    } else if (menuObj.quantity === 0) {
+    } else if (menuObj.quantity === 1) {
+        menuObj.quantity --;
         myOrder.filter((orderItem, index) => {
-            if (orderItem.id === itemId) {
+            if (parseInt(orderItem.id) === parseInt(itemId)) {
                 myOrder.splice(index, 1)
             };
         });
@@ -109,7 +112,9 @@ function handleRemoveClick(itemId) {
 };
 
 function handleOrderBtnClick() {
-    document.querySelector("#modal").classList.remove("hidden");
+    if (myOrder.length > 0) {
+        document.querySelector("#modal").classList.remove("hidden");
+    };
 };
 
 function handlePayBtnClick() {
@@ -117,9 +122,7 @@ function handlePayBtnClick() {
     let name = document.querySelector("#name").value
 
     modalInputs.forEach(input => {
-        if (input.value.length === 0) {
-            alert(`${input.name} required.`)
-        } else {
+        if (input.value.length >= 3) {
             document.querySelector("#modal").classList.add("hidden");
             document.querySelector("#order").innerHTML = `
                 <div class="confirm">

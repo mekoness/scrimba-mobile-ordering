@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Jimmy's Diner Ordering App</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="index.css">
+        <script src="index.js" type="module" defer></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Smythe&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Jimmy's Diner</h1>
+                <p>The best burgers and pizzas in town.</p>
+            </header>
+            <main>
+                <div id="menu" class="menu">
+                    <!-- Menu here -->
+                </div>
+                <div id="order" class="order hidden">
+                    <h2>Your Order</h2>
+                    <div id="order-feed">
+                        <!-- Order here -->
+                    </div>
+                    <div class="price" id="price-area">
+                        <p>Total Price:</p>
+                        <p id="price-total"><!-- Price here --></p>
+                    </div>
+                    <div class="pay-area" id="pay-area">
+                        <button class="btn" id="order-btn">Complete Order</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="modal hidden" id="modal">
+            <h2 class="modal-title">Enter Card Details</h2>
+            <input type="text" name="Name" class="modal-input" id="name" placeholder="Enter Your Name" required>
+            <input type="text" name="Card Number" class="modal-input" placeholder="Enter Card Number" required>
+            <input type="text" name="Card CCV" class="modal-input" placeholder="Enter CCV" required>
+            <button type="submit" class="btn" id="pay-btn">Pay</button>
+        </div>
+    </body>
+</html>
+

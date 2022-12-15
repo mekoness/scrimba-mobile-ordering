@@ -147,6 +147,10 @@ header {
     width: 100%;
 }
 
+#order-btn {
+	margin-bottom: 1rem;
+}
+
 .confirm {
     background-color: #ECFDF5;
     color: #065F46;

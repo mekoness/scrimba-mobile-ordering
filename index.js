@@ -1,5 +1,6 @@
 import {menuData} from "./data.js";
-let myOrder = []
+let myOrder = [];
+let darkMode = false;
 
 document.addEventListener("click", e => {
     if (e.target.dataset.id) {
@@ -11,6 +12,8 @@ document.addEventListener("click", e => {
     } else if (e.target.id === "pay-btn") {
         e.preventDefault();
         handlePayBtnClick();
+    } else if (e.target.id === "mode") {
+        handleModeClick();
     };
 });
 
@@ -37,7 +40,7 @@ function getMenuHtml() {
                     </div>
                 </div>
                 <div>
-                    <button class="menu-btn" data-id="${menuItem.id}">+</button>
+                    <button class="menu-btn" data-id="${menuItem.id}"><i class="fa-solid fa-plus"></i></button>
                 </div>
             </div>
         `
@@ -130,4 +133,19 @@ function handlePayBtnClick() {
             </div>
         `
     };
+};
+
+function handleModeClick() {
+    const modeArea = document.querySelector("#mode-area")
+
+    if (darkMode) {
+        document.querySelector(":root").style.setProperty("--bgcolor", "#fff");
+        document.querySelector(":root").style.setProperty("--textcolor", "#000");
+        modeArea.innerHTML = `<i class="fa-solid fa-moon mode" id="mode"></i>`;
+    } else if (!darkMode) {
+        document.querySelector(":root").style.setProperty("--bgcolor", "#000");
+        document.querySelector(":root").style.setProperty("--textcolor", "#fff");
+        modeArea.innerHTML = `<i class="fa-solid fa-sun mode" id="mode"></i>`;
+    };
+    darkMode = !darkMode;
 };

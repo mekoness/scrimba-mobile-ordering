@@ -73,15 +73,26 @@ function getOrderHtml() {
 };
 
 function renderPrice() {
-    const priceArea = document.querySelector("#price-total")
-    let priceTotal = 0
+    const priceArea = document.querySelector("#price-area");
+    const priceValue = document.querySelector("#price-total");
+    let priceTotal = 0;
 
     myOrder.forEach(orderItem => {
         priceTotal += orderItem.price * orderItem.quantity;
 
     });
 
-    priceArea.textContent = `$${priceTotal}`;
+    if (myOrder.length === 3) {
+        priceTotal -= 10
+        priceArea.innerHTML = `
+            <p>Total Price: <span class="discount">(with Combo Discount -$10)</span></p>
+        `
+    } else {
+        priceArea.innerHTML = `
+            <p>Total Price:</p>
+        `
+    }
+    priceValue.textContent = `$${priceTotal}`;
 };
 
 function handleOrderClick(itemId) {
@@ -107,7 +118,7 @@ function handleRemoveClick(itemId) {
         menuObj.quantity --;
         myOrder.filter((orderItem, index) => {
             if (parseInt(orderItem.id) === parseInt(itemId)) {
-                myOrder.splice(index, 1)
+                myOrder.splice(index, 1);
             };
         });
     };
@@ -122,8 +133,8 @@ function handleOrderBtnClick() {
 };
 
 function handlePayBtnClick() {
-    const modalInputs = document.querySelectorAll(".modal-input")
-    let name = document.querySelector("#name").value
+    const modalInputs = document.querySelectorAll(".modal-input");
+    let name = document.querySelector("#name").value;
 
     if (modalInputs[0].value.length > 0 && modalInputs[1].value.length > 0 && modalInputs[2].value.length === 3) {
         document.querySelector("#modal").classList.add("hidden");
@@ -136,7 +147,7 @@ function handlePayBtnClick() {
 };
 
 function handleModeClick() {
-    const modeArea = document.querySelector("#mode-area")
+    const modeArea = document.querySelector("#mode-area");
 
     if (darkMode) {
         document.querySelector(":root").style.setProperty("--bgcolor", "#fff");

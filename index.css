@@ -183,11 +183,11 @@ button {
     padding: 1rem;
 }
 
-.hidden {
-    display: none;
+.discount {
+    color: #16DB99;
+    font-size: .8rem;
 }
 
-.dark {
-    background-color: var(--textcolor);
-    color: var(--bgcolor);
+.hidden {
+    display: none;
 }

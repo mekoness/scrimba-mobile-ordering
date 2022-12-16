@@ -3,13 +3,14 @@ let myOrder = []
 
 document.addEventListener("click", e => {
     if (e.target.dataset.id) {
-        handleOrderClick(e.target.dataset.id)
+        handleOrderClick(e.target.dataset.id);
     } else if (e.target.dataset.remove) {
-        handleRemoveClick(e.target.dataset.remove)
+        handleRemoveClick(e.target.dataset.remove);
     } else if (e.target.id === "order-btn") {
-        handleOrderBtnClick()
+        handleOrderBtnClick();
     } else if (e.target.id === "pay-btn") {
-        handlePayBtnClick()
+        e.preventDefault();
+        handlePayBtnClick();
     };
 });
 
@@ -121,14 +122,12 @@ function handlePayBtnClick() {
     const modalInputs = document.querySelectorAll(".modal-input")
     let name = document.querySelector("#name").value
 
-    modalInputs.forEach(input => {
-        if (input.value.length >= 3) {
-            document.querySelector("#modal").classList.add("hidden");
-            document.querySelector("#order").innerHTML = `
-                <div class="confirm">
-                    <p>Thanks, ${name}! Your order is on its way!</p>
-                </div>
-            `
-        };
-    });
+    if (modalInputs[0].value.length > 0 && modalInputs[1].value.length > 0 && modalInputs[2].value.length === 3) {
+        document.querySelector("#modal").classList.add("hidden");
+        document.querySelector("#order").innerHTML = `
+            <div class="confirm">
+                <p>Thanks, ${name}! Your order is on its way!</p>
+            </div>
+        `
+    };
 };

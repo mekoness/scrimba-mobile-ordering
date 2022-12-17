@@ -12,6 +12,9 @@ document.addEventListener("click", e => {
     } else if (e.target.id === "pay-btn") {
         e.preventDefault();
         handlePayBtnClick();
+    } else if (e.target.id === "stars-btn") {
+        e.preventDefault();
+        handleStarsBtnClick();
     } else if (e.target.id === "mode") {
         handleModeClick();
     };
@@ -143,8 +146,13 @@ function handlePayBtnClick() {
                 <p>Thanks, ${name}! Your order is on its way!</p>
             </div>
         `
+        document.querySelector("#stars-modal").classList.remove("hidden");
     };
 };
+
+function handleStarsBtnClick() {
+    document.querySelector("#stars-modal").classList.add("hidden");
+}
 
 function handleModeClick() {
     const modeArea = document.querySelector("#mode-area");

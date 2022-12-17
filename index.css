@@ -142,6 +142,8 @@ button {
     padding: 15px;
 }
 
+/* PAYMENT MODAL */
+
 .modal {
     position: absolute;
     top: 50%;
@@ -188,16 +190,13 @@ button {
     font-size: .8rem;
 }
 
-.hidden {
-    display: none;
-}
-
 /* RATING MODAL */
 
 .stars-modal {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 365px;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 30px #666;
     border-radius: 5px;
@@ -254,4 +253,10 @@ label.star:before {
 #stars-btn {
     width: 100%;
     margin-top: 1rem;
+}
+
+/* UTILITY CLASSES */
+
+.hidden {
+    display: none;
 }
